@@ -1,6 +1,7 @@
 package test;
 
 import com.relevantcodes.extentreports.LogStatus;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -30,6 +31,9 @@ public class CalculatorTest extends BaseTest {
         } catch(AssertionError e) {
             myTests.log(LogStatus.FAIL, "the right result is " + actualResult+" and not "+exceptedResult);
             myTests.log(LogStatus.INFO, "screen:" + myTests.addScreenCapture(takeScreenShot(getImg() + "\\" + System.currentTimeMillis())));
+            System.out.println(e.getMessage());
+            Assert.fail();
+
         }
 
         }
@@ -52,6 +56,8 @@ public class CalculatorTest extends BaseTest {
         } catch(AssertionError e) {
             myTests.log(LogStatus.FAIL, "the right result is " + actualResult+" and not "+exceptedResult);
             myTests.log(LogStatus.INFO, "screen:" + myTests.addScreenCapture(takeScreenShot(getImg() + "\\" + System.currentTimeMillis())));
+            System.out.println(e.getMessage());
+            Assert.fail();
         }
     }
 
@@ -73,6 +79,8 @@ public class CalculatorTest extends BaseTest {
         } catch(AssertionError e) {
             myTests.log(LogStatus.FAIL, "the right result is " + actualResult+" and not "+exceptedResult);
             myTests.log(LogStatus.INFO, "screen:" + myTests.addScreenCapture(takeScreenShot(getImg() + "\\" + System.currentTimeMillis())));
+            System.out.println(e.getMessage());
+            Assert.fail();
         }
     }
 
@@ -86,7 +94,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.clickOnEqual();
 
         double actualResult= Double.parseDouble(calculatorPage.showResult());
-        double exceptedResult= getFirstNumber()/(double)getSecondNumber();
+        double exceptedResult= getFirstNumber()/getSecondNumber();
 
         try{
             assertEquals(exceptedResult,actualResult, 0.0001);
@@ -94,6 +102,8 @@ public class CalculatorTest extends BaseTest {
         } catch(AssertionError e) {
             myTests.log(LogStatus.FAIL, "the right result is " + actualResult+" and not "+exceptedResult);
             myTests.log(LogStatus.INFO, "screen:" + myTests.addScreenCapture(takeScreenShot(getImg() + "\\" + System.currentTimeMillis())));
+            System.out.println(e.getMessage());
+            Assert.fail();
         }
 
     }
