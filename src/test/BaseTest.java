@@ -65,7 +65,7 @@ public class BaseTest {
     //Data from xml file
     public static String readFromFile(String data) throws Exception{
 
-        File xmlFile= new File("C:/Users/USER/IdeaProjects/appiumTest/data/text.xml");
+        File xmlFile= new File("C:/Users/USER/IdeaProjects/appiumTest/src/data/text.xml");
         DocumentBuilderFactory dbFactory= DocumentBuilderFactory.newInstance();
         DocumentBuilder db= dbFactory.newDocumentBuilder();
         Document doc= db.parse(xmlFile);
